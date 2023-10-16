@@ -10,8 +10,7 @@ exports.up = function(knex) {
         table.timestamps(true, true);
        
     });
-    console.log()
-  
+      
 };
 
 /**
