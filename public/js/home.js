@@ -1,5 +1,5 @@
-let usr = URLSearchParams.get('username');
+let user = URLSearchParams.get('username');
 
-if(!usr){
+if(!user){
     window.location.href = '/login';
 }

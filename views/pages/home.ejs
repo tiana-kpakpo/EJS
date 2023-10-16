@@ -1,23 +1,84 @@
-<link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/home.css">
-<div class="wrapper">
-    <div class="sidebar">
-    <%- include('../layouts/sidebar', {PageName: 'home'}) %>
-    </div>
-    <div class="main_content">
-        <header>
-            <h1> <%- title %> </h1>
-        </header>
-        <div class="info">
-            <div><h1> <%- user %>  </h1></div>
+
+
+<!-- <main class="wrapper">
+    <header class="menu">
+        <%- include('../layouts/header') %>
+    </header>
+
+
+    <div class="container">
+        <div class="sidebar">
+            <%- include('../layouts/sidebar', {PageName: 'Home' }) %>
+        </div>
+
+        <div class="content">
+
+            <h1>Welcome to my EJS webpage</h1>
+
         </div>
     </div>
-    <div class="right">
-        <h1> right</h1>
+
+</main>
+<footer>
+    <%- include('../layouts/footer', {PageName: 'Home' }) %>
+
+</footer> -->
+
+<link rel="stylesheet" href="css/home.css">
+
+
+<!-- <main class="wrapper">
+    <header class="menu">
+        <%- include('../layouts/header') %>
+    </header>
+
+
+    <div class="container">
+        <div class="sidebar">
+            <%- include('../layouts/sidebar', {PageName: 'Home' }) %>
+        </div>
+
+        <div class="content">
+
+            <h1>Welcome to my EJS webpage</h1>
+
+        </div>
     </div>
-</div>
-<div>
-    <%- include('../layouts/footer') %>
-</div>
+
+</main> -->
+
+<main class="container">
+   
+
+    <div class="sidebar-con">
+        <%- include('../layouts/sidebar', {PageName: 'Home'}) %>
+    </div>
+
+    <div class="content-body">
+        <header class="menu">
+            <%- include('../layouts/header') %>
+        </header>
+    
+        <div class="content">
+    
+            <h1>Welcome to Feast & Frolic</h1>
+    
+        </div>
+
+    </div>
+   
+
+</main>
+
+
+
+
+<footer>
+    <%- include('../layouts/footer', {PageName: 'Home' }) %>
+
+</footer>
+
+<script src="js/home.js"></script>
 
 <script src="js/home.js"></script>
