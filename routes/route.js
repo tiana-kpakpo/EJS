@@ -33,7 +33,7 @@ router.get('/employees', (req, res) => {
 
 router.get('/home', (req, res) => {
         let usr = req.query.username;
-// if usr is not null or usr is not empty redirect to login page
+// if user is null or user is empty redirect to login page
   
     if(!usr){
         res.redirect('/login');

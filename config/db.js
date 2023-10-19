@@ -6,7 +6,7 @@ const knexfile = require('./knexfile');
 const db = knex(knexfile.development);
 
 async function create_user_table() {
-    const tableExists = await db.schema.hasTable('todo');
+    const tableExists = await db.schema.hasTable('users');
     
         if(!tableExists) {
     

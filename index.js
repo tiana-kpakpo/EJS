@@ -2,6 +2,8 @@ const express = require('express');
 const route = require('./routes/route');
 const bodyParser = require('body-parser');
 const app = express();
+const router = require('./routes/routes')
+
 //require ejs layout
 const expressLayouts = require('express-ejs-layouts');
 const path = require('path');
@@ -22,6 +24,7 @@ app.set('layout', 'layouts/main');
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', route);
+app.use('/api', router);
 
 app.get('/', (req, res) => {
     res.render('pages/index', {title: "Login",} );

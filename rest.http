@@ -1,0 +1,8 @@
+POST http://localhost:9898/api/v1/loginUser
+
+Accept: 'application/json',
+Content-Type: 'application/json'
+{ 
+    "username": "tiana",
+    "email": "anna@gmail.com"
+}
