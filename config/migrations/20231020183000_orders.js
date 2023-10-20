@@ -3,17 +3,13 @@
  * @returns { Promise<void> }
  */
 exports.up = function(knex) {
-     //meals table columns
-     return knex.schema.createTable('meals', table => {
+    return knex.schema.createTable('orders', table => {
         table.increments('id').primary();
-        table.string('name');
-        table.string('description');
+        table.integer('meal_id');
         table.integer('price');
-        table.string('image');
-        table.boolean('is_vegetarian').defaultTo(false);
+        table.string('username');
         table.timestamps(true, true);
-});
-  
+    })
 };
 
 /**
@@ -21,5 +17,6 @@ exports.up = function(knex) {
  * @returns { Promise<void> }
  */
 exports.down = function(knex) {
-    return knex.schema.dropTable('meals');  
+    return knex.schema.dropTable('orders');
+  
 };

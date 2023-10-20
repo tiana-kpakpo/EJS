@@ -23,8 +23,8 @@ async function loginUser(e) {
     const username = document.getElementById('username-input').value;
     const email = document.getElementById('email-input').value;
   
-    // console.log(username);
-    // console.log(email);
+    console.log(username);
+    console.log(email);
   
     if (!username || !email) {
       const errorMessage = document.querySelector('#error-message');
@@ -34,8 +34,6 @@ async function loginUser(e) {
         errorMessage.style.display = 'none';
         
       }, 2000);
-
-  
       return;
     }
 
@@ -49,8 +47,8 @@ async function loginUser(e) {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-          username,
-          email
+          username:  username,
+          email: email
         })
       });
   
@@ -63,7 +61,7 @@ async function loginUser(e) {
   
         setTimeout(() => {
           errorMessage.style.display = 'none';
-        }, 1500);
+        }, 2000);
   
         return;
       }

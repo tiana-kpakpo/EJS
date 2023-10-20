@@ -10,12 +10,15 @@ body{
    display: grid;
    grid-template-columns: 1fr 3fr ;
 }
+
 .sidebar{
+
     width:100%;
     height: 100vh;
-    overflow: hidden;
-    overflow-y: scroll;
-    background-color: gold;
+    /* color: #F5F5F5; */
+    /* overflow: hidden; */
+    /* overflow-y: scroll; */
+    background-color: #f57a73;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     scale: 0.8rem;
     padding: 1.2rem 2rem;
@@ -26,18 +29,60 @@ body{
     flex-direction: column;
     row-gap: 2rem;
 }
-.menu{
+.menuBar{
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
+    
 }
 .content{
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    height: 100%;
+    padding-top: 1.5rem;
+    overflow-y: scroll;
+    cursor: pointer;
+}
+
+.meal_img {
+    height: 220px;
+    width: calc(80% - 10px);
+    object-fit: cover;
+  }
+  
+  .meal_title{
+   font-size: 20px;
+   margin: 5px;
+  
+  }
+  .meal{
+    transition: transform 0.3s ease-in-out;
+  }
+  .meal:hover{
+    transform: translateY(-10px);
+  }
+  .meal_price{
+    font-size: 20px;
+    margin: 10px 0;
+  }
+  .meal_description{
+    font-size: 20px;
+  }
+
+.right-con{
+    display: none;
+    /* background-color: bisque;
+    width:100%;
+    height: 100vh;
+    overflow: hidden; */
+    /* overflow-y: scroll; */
+    /* background-color: gold; */
+    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    scale: 0.8rem;
+    padding: 1.2rem 2rem;
+    cursor: pointer; */
 }
 footer{
     position: absolute;
@@ -47,9 +92,10 @@ footer{
     text-align: center;
     padding: 0.8rem 1.5rem;
     margin: 0 auto;
-    background-color: gray;
-    font-size: 1.4rem;
+    background-color:  #FFD333;
+    font-size: 10px;
     cursor: pointer;
+    /* color: white; */
 }
 .foot{
     display: flex;

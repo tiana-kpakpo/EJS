@@ -11,11 +11,11 @@ exports.seed = async function(knex) {
   //   {id: 3, colName: 'rowValue3'}
   // ]);
 
-  return knex('users')
+  return knex('user')
   .del()
   .then(function () {
       // insert seed entries
-      return knex('users').insert([
+      return knex('user').insert([
           {username: 'tiana', email: 'anna@gmail.com'}
       ]);
   });

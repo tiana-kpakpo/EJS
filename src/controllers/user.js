@@ -1,9 +1,15 @@
 const User = require('../model/user');
+const express = require('express');
+const bodyParser = require('body-parser');
+const app = express();
+
+app.use(bodyParser.json());
 
 // login user
 exports.getUser = async (req, res) => {
     try {
         const { email, username } = req.body;
+        console.log(req.body)
 
         if (!email || !username) {
             return res.status(400).json({ message: 'Email and username are required' });
@@ -39,4 +45,5 @@ exports.getAllUsers = async (req, res) => {
         console.log(error);
         res.status(500).send('Internal Server Error');
     }
-};
+
+}

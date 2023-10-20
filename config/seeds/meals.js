@@ -11,13 +11,13 @@ exports.seed = async function(knex) {
   //   {id: 3, colName: 'rowValue3'}
   // ]);
 
-  return knex('meals')
+  return knex('meal')
   // Deletes ALL existing entries
 //  const result =  await knex('meals').del()
   .del()
   .then(function () {
 
-  return  knex('meals').insert([
+  return  knex('meal').insert([
     {
       name: 'burger',
      description: 'burger with cheese',

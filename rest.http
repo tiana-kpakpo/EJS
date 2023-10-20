@@ -1,8 +1,20 @@
-POST http://localhost:9898/api/v1/loginUser
+# POST http://localhost:9898/api/v1/loginUser
 
-Accept: 'application/json',
-Content-Type: 'application/json'
-{ 
-    "username": "tiana",
-    "email": "anna@gmail.com"
+# Accept: 'application/json',
+# Content-Type: 'application/json'
+# { 
+#     "username": "tiana",
+#     "email": "anna@gmail.com"
+# }
+
+POST  http://localhost:9898/api/v1/createOrder
+
+Content-Type: application/json,
+
+{
+    "id": 1,
+  
 }
+
+
+

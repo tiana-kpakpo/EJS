@@ -5,29 +5,29 @@
  */
 module.exports = {
 
-    development: {
-      client: 'sqlite3',
-      connection: {
-        filename: './dev.sqlite3'
-      },
-      useNullAsDefault: true, // Required for SQLite
-    },
-  
     // development: {
-    //   client: 'mysql',
+    //   client: 'sqlite3',
     //   connection: {
-    //     database: 'menuplus',
-    //     user:     'root',
-    //     password: '',
-    //     port : 3306,
-    //     host : 'localhost'
+    //     filename: './dev.sqlite3'
     //   },
-  
-    //   migrations: {
-    //     tableName: 'knex_migrations',
-    //     directory: './migrations'
-    //   }
+    //   useNullAsDefault: true, // Required for SQLite
     // },
+  
+    development: {
+      client: 'mysql',
+      connection: {
+        database: 'menuplus',
+        user:     'root',
+        password: '',
+        port : 3306,
+        host : 'localhost'
+      },
+  
+      migrations: {
+        tableName: 'knex_migrations',
+        directory: './migrations'
+      }
+    },
   
     staging: {
       client: 'postgresql',
