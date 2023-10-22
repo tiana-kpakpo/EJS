@@ -46,6 +46,27 @@ exports.seed = async function(knex) {
       price: 90,
       is_vegetarian: false,
       image: 'https://payments.ipaygh.com/app/webroot/img/products/MER02854-Portion_of_Pork-0.jpeg'
+     },
+     {
+      name: 'Shawarma',
+      description: 'Tuna Shawarma',
+      price: 50,
+      is_vegetarian: false,
+      image: 'https://payments.ipaygh.com/app/webroot/img/products/MER02854-Slim_Macho_Shawarma-0.jpeg'
+     },
+     {
+      name: 'Sandwich',
+      description: 'vegetable & chicken filled',
+      price: 67,
+      is_vegetarian: false,
+      image: 'https://payments.ipaygh.com/app/webroot/img/products/MER02854-Oliver_Twist_Sandwich-0.jpeg'
+     },
+     {
+      name: 'Mangopine',
+      description: 'Mango & Pinapple smoothie',
+      price: 67,
+      is_vegetarian: false,
+      image: 'https://payments.ipaygh.com/app/webroot/img/products/MER02854-Mangopine-0.jpeg'
      }
 
   ]);

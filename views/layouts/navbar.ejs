@@ -1,0 +1,81 @@
+<!-- <link rel="stylesheet" href="css/style.css"> -->
+
+<div class="navbar">
+    <div class="drop-down">
+        <span class="material-symbols-outlined menuBtn" style="font-size: 24px;">
+            menu
+            </span>
+<div class="dropdown-content">
+    <ul>
+        <div class="orderDiv" style="display: flex; justify-content: space-between;">
+        <li class="active">
+            <%= PageName %>
+        </li>
+        <span class="material-symbols-outlined">
+            home
+            </span>
+        </div>
+
+        <div class="orderDiv" style="display: flex; justify-content: space-between;">
+            <li>Menu </li>
+            <span class="material-symbols-outlined">
+                restaurant_menu
+                </span>
+    </div>
+        <!-- <div class="orderDiv" style="display: flex; justify-content: space-between;">
+            <li class="Order"> Order</li>
+           
+        </div> -->
+        <div class="orderDiv" style="display: flex; justify-content: space-between;">
+            <li> Settings </li>
+            <span class="material-symbols-outlined">
+                settings
+                </span>
+        </div>
+
+        <!-- <div class="orderDiv logOut" style="display: flex; justify-content: space-between;">
+            <li> Logout </li>
+           
+    </div> -->
+
+    </ul>
+</div>
+    
+</div>
+
+    <div class="name">
+        <h2>Welcome to Feast & Frolic</h2><i class="bi bi-list"></i>
+        <div class="search">
+            <input type="search" id="search" placeholder="search" >
+            <span class="material-symbols-outlined" id="searchBtn">
+                search
+                </span>
+        </div>
+    </div>
+
+    <div class="socials" style="display: flex; justify-content: space-between;">
+        <span class="material-symbols-outlined" style="font-size: 24px;">
+            shopping_bag
+        </span>
+
+        <span class="material-symbols-outlined" style="font-size: 24px; ">
+            logout
+            </span>
+
+    </div>
+</div>
+
+<script>
+    const expandIcon = document.querySelector('.menuBtn')
+    const dropdown = document.querySelector('.dropdown-content');
+expandIcon.addEventListener('click', () => {
+  dropdown.style.display = (dropdown.style.display === 'block') ? 'none' : 'block';
+});
+
+const btn = document.querySelector('.logOut').addEventListener('click', () => {
+    console.log('btn clicked')
+
+    window.location.href = '/login';
+})
+
+</script>

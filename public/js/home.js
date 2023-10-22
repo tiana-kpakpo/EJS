@@ -4,14 +4,14 @@ if (!user) {
     window.location.href = '/login';
 }
 
-window.addEventListener('load', async () => {
+window.addEventListener('load', async (event) => {
     console.log('home.js is running')
 
     async function getMeals() {
-        const url = 'http://localhost:9898/api/v1/getMeals';
 
-        try {
-            const result = await fetch(url);
+        try{
+
+            const result = await fetch('http://localhost:9898/api/v1/getMeals');
             const response = await result.json();
             const { meal } = response
             console.log(meal)
@@ -21,49 +21,76 @@ window.addEventListener('load', async () => {
                 const menuDiv = document.createElement('div')
                 menuDiv.className = 'meal';
                 menuDiv.innerHTML = `
-                <div class= 'card'>
+                <div class= 'card'  id="${meal.id}" data-meal.id="${meal.id}">
                 <img src="${meal.image}" alt="image" class="meal_img">
-                <div class="meal_price">$${meal.price}</div>
-            <div class="meal_title">${meal.name}</div>
+                <div class= tPrice>
+                <div class="meal_title">${meal.name}</div>
+                <div class="meal_price">$${meal.price}</div></div>
             <div class="meal_description">${meal.description}</div>
+            <button type = "button" class= "orderBtn" > order </button>
             </div>
             `
             menuList.appendChild(menuDiv);
 
+        })
 
-            })
-
-        } catch (error) {
-            console.error('error fetching meals:', error)
+        }catch(error) {
+            console.error('error', error)
         }
 
     }
-
-    getMeals();
-
-});
+        
+getMeals();
 
 
-const btn = document.querySelector('.menu')
-const order = document.querySelector('.right')
-btn = document.addEventListener('click', () => {
-    console.log('meal selected')
-    
-    //placing order
+//placing an order
 
-    let meal_id = btn.id;
-    console.log(meal_id)
+document.querySelector('.content').addEventListener('click', async (e) => {
+    if (e.target.classList.contains('orderBtn')) {
+        e.preventDefault();
+        console.log('order now')
 
-    const newOrder = fetch('http://localhost:9898/api/v1/createOrder', {
-        method: 'POST',
-        headers: {
-            "content-type" : "application/json "
-        },
-        body: JSON.stringify({
-            meal_id: +meal_id,
-            price: +priceVal
-        })
+        let meal_id = e.target.closest('.card').getAttribute('data-meal.id');
+        console.log(meal_id)
 
-    }) 
-newOrder();
+        if (meal_id) {
+            alert('Select a meal');
+            return;
+        }
+
+        const params = new URLSearchParams(window.location.search);
+        customer = params.get('username')
+
+        try{
+            const newOrder = await fetch ('http://localhost:9898/api/v1/createOrder', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    meal_id,
+                    username: customer,
+                })
+            })
+
+            if (newOrder.status === 200){
+                const orderData = await newOrder.json();
+                console.log('Order created:', orderData);
+                console.log(orderData.data)
+            } else{
+                console.error('Order not created');
+            }
+
+        }catch(err){
+            console.error('error', err)
+        }
+
+
+    }
+})
+
+
+
+
+
 })

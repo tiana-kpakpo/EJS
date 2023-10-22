@@ -7,14 +7,21 @@
 #     "email": "anna@gmail.com"
 # }
 
-POST  http://localhost:9898/api/v1/createOrder
+# POST  http://localhost:9898/api/v1/createOrder
 
-Content-Type: application/json,
+# Content-Type: application/json,
 
-{
-    "id": 1,
+# {
+#     "id": 1,
   
-}
+# }
 
+GET http://localhost:9898/api/v1/getOrders/tiana
 
+# POST  http://localhost:9898/api/v1/createOrder
+
+# {
+#     "meal_id": 1,
+#     "username": "tiana"
+# }
 

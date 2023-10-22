@@ -25,7 +25,7 @@ router.get('/v1/getMeals', async(req, res) => {
 });
 
 router.post('/v1/getOrder/:id', async(req, res) => {
-      const meals = await knex('meals').select('*').orderBy('id', 'desc');
+      const meals = await knex('meal').select('*').orderBy('id', 'desc');
       res.status(200).json({meal: meals});
 });
 

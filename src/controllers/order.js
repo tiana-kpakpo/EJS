@@ -8,8 +8,8 @@ const OrderController = {
     let user = req.params.username;
 
     const orders = await knex("orders")
-      .select('orders.*', 'meals.name', 'meals.price')
-      .leftJoin('meals', 'meals.id', 'orders.meal_id')
+      .select('orders.*', 'meal.name', 'meal.price')
+      .leftJoin('meal', 'meal.id', 'orders.meal_id')
       .where('orders.username', user);
 
     if (!orders) {
@@ -26,7 +26,7 @@ const OrderController = {
       //  .findOrFail()
       .where("username", username)
       .where("id", orderId)
-      .leftJoin("meals", "meals.id", "orders.meal_id");
+      .leftJoin("meal", "meal.id", "orders.meal_id");
 
     if (!order) {
       res.status(409).json({ message: "Order not found" });

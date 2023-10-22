@@ -17,13 +17,13 @@ const mealController = {
                 let cuisine = ['Gluten Free', 'Ketogenic', 'Vegetarian', 'Pescetarian'];
 
                 const orders = await knex('orders')
-                .select('orders.*', 'meals.name', 'meals.price')
-                .leftJoin('meals', 'meals.id', 'orders.meal_id' )
+                .select('orders.*', 'meal.name', 'meal.price')
+                .leftJoin('meal', 'meal.id', 'orders.meal_id' )
                 .where('orders.username', usr);
 
                 // get meals from db
-                const meals = await knex('meals').select('*').orderBy('id', 'desc');
-                // console.log(meals);
+                const meals = await knex('meal').select('*').orderBy('id', 'desc');
+                console.log(meals);
 
                 if(!meals){
                     res.render('pages/notFound', {    title: "Not Found",
@@ -54,7 +54,7 @@ const mealController = {
     getMeals: async(req, res) => {
 
         // return res.json({ message: "getting meals from endpoint" });
-         const meals = await knex('meals')
+         const meals = await knex('meal')
          .select("*")
          .orderBy('id', 'desc')
 
@@ -65,7 +65,7 @@ const mealController = {
        
     },
     getMealById: async(req, res) => {
-        const meal = await knex('meals').select('*').where('id', req.params.id);
+        const meal = await knex('meal').select('*').where('id', req.params.id);
         if(!meal){
             return res.status(404).json({
                 message: 'Meal not found'
@@ -78,7 +78,7 @@ const mealController = {
 
     createMeal: async(req, res) => {
         const {name, price, description, image_url} = req.body;
-        const meal = await knex('meals').insert({
+        const meal = await knex('meal').insert({
             name: name,
             price: price,
             description: description,
@@ -96,7 +96,7 @@ const mealController = {
     },
 
      deleteMeal: async(req, res) => {
-        const meal = await knex('meals').where('id', req.params.id).del();
+        const meal = await knex('meal').where('id', req.params.id).del();
         if(!meal){
             return res.status(404).json({
                 message: 'Meal not found'
@@ -109,7 +109,7 @@ const mealController = {
 
     updateMeal: async(req, res) => {
         const {name, price, description, image_url} = req.body;
-        const meal = await knex('meals').where('id', req.params.id).update({
+        const meal = await knex('meal').where('id', req.params.id).update({
             name: name,
             price: price,
             description: description,
@@ -135,7 +135,7 @@ const mealController = {
         const orders = await knex("orders")
           .select("*")
           .where("username", username)
-          .leftJoin("meals", "meals.id", "orders.meal_id");
+          .leftJoin("meal", "meal.id", "orders.meal_id");
     
         if (!orders) {
           res.status(409).json({ message: "Order not found" });
